@@ -10,7 +10,7 @@ const API_URL_HOUSE="http://hp-api.herokuapp.com/api/characters/house/";
   providedIn: 'root'
 })
 export class HarryPotterServiceService {
-
+solicitudes: any=[];
   constructor(private http: HttpClient
     ) { }
 
@@ -30,6 +30,10 @@ export class HarryPotterServiceService {
       return this.http.get( API_URL_HOUSE
         +houseName);
     }
-
-
+setSolicitudes(solicitud){
+  this.solicitudes=solicitud;
+}
+getSolicitudes(){
+  return this.solicitudes;
+}
 }

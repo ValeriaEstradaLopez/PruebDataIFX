@@ -1,35 +1,44 @@
 <div class="container">
-<div class="row center-xs">
-    <form action="">
-        <h3>Formulario para solicitud de ingreso</h3>
-<div class="col">
-    <mat-form-field appearance="legacy">
-      <mat-label>Nombre</mat-label>
-      <input matInput placeholder="Nombre del estudiante">
-    </mat-form-field>
-</div>
-  <div class="col">
-    <mat-form-field appearance="standard">
-      <mat-label>Especie</mat-label>
-      <input matInput placeholder="especie">
-    </mat-form-field>
-</div>
-  <div  class="col">
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="Placeholder">
+  <div class="row center-md">
+    <form [formGroup]="solicitudForm" (ngSubmit)="guardarSolicitud()">
+      <h3>Formulario para solicitud de ingreso</h3>
+      <div class="col">
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="nombre" matInput placeholder="Nombre del estudiante">
+        </mat-form-field>
+      </div>
       
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</div>
-  <div  class="col">
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
+      <div class="col">
+        <mat-form-field appearance="standard">
+          <mat-label>Genero</mat-label>
+          <input formControlName="genero" matInput placeholder="Genero">
+        </mat-form-field>
+      </div>
       
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</div>
-</form>
-</div>
+      <div class="col">
+
+        <mat-label >¿Mago?</mat-label>
+        <mat-slide-toggle (change)="esMago( $event.checked)" class="toggle"formControlName="mago"> {{isChecked}}</mat-slide-toggle>
+      </div>
+      
+      <div class="col">
+        <mat-form-field appearance="standard">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input formControlName="fechaDeNacimiento" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+      <div class="col">
+        <label for="">Imagen del estudiante </label>
+        <input formControlName="imagen" type="file">
+      </div>
+     <div class="col">
+      <button mat-raised-button color="primary"type="submit">Enviar solicitud</button>
+     </div>
+    </form>
+    
+  </div>
 </div>

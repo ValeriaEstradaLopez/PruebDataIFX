@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MatDialogContent, MatDialogModule} from '@angular/material/dialog';
 import { SectionsRoutingModule } from './sections-routing.module';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { StudentsComponent } from './students/students.component';
 import { StaffComponent } from './staff/staff.component';
 import { HomeComponent } from './home/home.component';
@@ -15,21 +15,26 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AgePipe } from '../age.pipe';
 import { CreateComponent } from './students/create/create.component';
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ViewComponent } from './students/view/view.component';
 
 @NgModule({
   declarations: [
-    
+   
     StudentsComponent,
     StaffComponent,
     HomeComponent,
     HousesComponent,
     AgePipe,
-    CreateComponent
+    CreateComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SectionsRoutingModule, 
     MatCardModule,
      MatButtonModule,
@@ -37,9 +42,9 @@ import { CreateComponent } from './students/create/create.component';
      MatPaginatorModule,
      MatFormFieldModule,
      MatInputModule,
-     
-     
-
+     MatSlideToggleModule, 
+     MatDatepickerModule,
+     MatNativeDateModule,
   ]
 })
 export class SectionsModule { }

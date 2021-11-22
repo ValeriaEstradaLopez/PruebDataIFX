@@ -1,0 +1,12 @@
+.example-form mat-slide-toggle {
+    margin: 8px 0;
+    display: block;
+  }
+div .col{
+      width: 100%;
+      margin:20px;
+  }
+  .toggle{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
